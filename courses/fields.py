@@ -19,7 +19,7 @@ class OrderField(models.PositiveIntegerField):
 							 for field in self.for_fields}
 					qs = qs.filter(**query)
 				# Получаем заказ последнего объекта.
-				last_item = qs.filter(self.attname)
+				last_item = qs.latest(self.attname)
 				value = last_item.order + 1
 			except ObjectDoesNotExist:
 				value = 0
