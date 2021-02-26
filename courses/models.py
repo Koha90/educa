@@ -24,7 +24,7 @@ class Course(models.Model):
 							  verbose_name='Преподаватель')
 	subject = models.ForeignKey(Subject, related_name='courses', on_delete=models.CASCADE, verbose_name='Предмет')
 	title = models.CharField('Название курса', max_length=200)
-	slug = models.SlugField(max_length=200, unique=True, verbose_name='Ссыдка')
+	slug = models.SlugField(max_length=200, unique=True, verbose_name='Ссылка')
 	overview = models.TextField('Краткое описание курса')
 	created = models.DateTimeField('Создан', auto_now_add=True)
 
